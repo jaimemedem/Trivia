@@ -1,9 +1,98 @@
-#Titulo_Principal{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 80px;
+body{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
+    background-color: antiquewhite;
+    padding: 20px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     
 }
+
+.juego-container {
+    position:absolute;
+    height: 250px;
+    width: 50%;
+    background-color: #f8b195;
+    padding: 10px;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.pregunta-box {
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.opciones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.opcion {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: darkkhaki;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.opcion:hover {
+    background-color: #0056b3;
+}
+
+.envoltorio
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Menu_Principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    height: auto; 
+    background-color: #a8a88c; 
+    padding: 30px;
+    border-radius: 10px; 
+    background-color:rgb(174, 177, 154);
+
+}
+
+.Menu_Principal h1{
+    margin-bottom: 0%;
+    
+}
+
+.boton_menu button{
+    font-weight: bold;
+    border-radius: 30px;
+    margin: auto;
+    background-color:lightcyan;
+    max-width: 200px;
+    display: block;
+    width: 80%;
+    padding: 15px;
+}
+
+.boton_menu button:hover{
+    background-color: darkcyan;
+}
+
  
 .fondo {
     width: 100%;

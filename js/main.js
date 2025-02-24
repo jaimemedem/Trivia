@@ -1,17 +1,37 @@
 function iniciarJuego() {
-    let nombre = document.getElementById("nombre").value.trim();
-
-    if (nombre === "") {
-        alert("Por favor, introduce tu nombre antes de jugar.");
-        return;
+    let estado=true;
+    let api_token;
+    fetch("https://opentdb.com/api_token.php?command=request")
+        .then(response => response.json())
+        .then(data =>
+            api_token=data.token
+        )
+    while(estado==true){
+        estado=preguntar(estado,api_token);
     }
+    };
+function preguntar(estado, token)
+{
 
-    // Guardamos el nombre en localStorage para usarlo en el juego
-    localStorage.setItem("jugador", nombre);
-    localStorage.setItem("puntuacion", 0); // Inicializamos la puntuación
+    let respuesta;
+    fetch(`https://opentdb.com/api.php?amount=1&category=9&difficulty=medium&type=multiple&token=${token}`)
+    .then(response=>response.json())
+    .then(data=>{
+        let pregunta=data.results[0].question;
+        let respuesta_correcta=data.results[0].correct_answer;
+        let respuestas=[...data.results[0].incorrect_answers,data.results[0].correct_answers];
+        respuestas.sort(()=>Math.random()-0.5);
 
-    alert(`¡Bienvenido, ${nombre}! El juego comenzará ahora.`);
-    
-    // Redirigir a la pantalla del juego
-    window.location.href = "juego.html";
+        document.getElementById("pregunta")=pregunta;
+
+        let opcionesHTML="";
+        respuestas.forEach(respuesta => {
+            opcionesHTML+=`<button class='opcion'>${respuesta}</button>`;
+        });
+        document.getElementById("opciones").innerHTML=opcionesHTML;
+    }
+    )
+
 }
+
+
