@@ -9,8 +9,10 @@
 <body>
     <div class="fondo">
         <div class="score-container">
-            <p>Mejor Puntaje: <span id="highScoreDisplay">0</span></p>
+            <p>High Score: <span id="highScoreDisplay">0</span></p>
+            <p>Current Score: <span id="currentScoreDisplay">0</span></p>
         </div>
+        <div id="feedback" class="feedback"></div>
         <div class="wrapper">
         <div class="juego-container">
             <h3>question:</h3>
@@ -20,6 +22,7 @@
             <div class="opciones-container" id="opciones">
             </div>
         </div>
+        <button id="exitButton" class="exit-button" onclick="exitGame()">Exit</button>
     </div>
     <script src="js/main.js"></script>
 </body>
