@@ -10,12 +10,29 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
 }
+
+.score-container {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    background-color: beige; 
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    font-size: 1.1em;
+    z-index: 999;
+  }
+  
+  .score-container p {
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+  }
 
 .juego-container {
     position:absolute;
-    height: 250px;
+    height: 70%;
     width: 50%;
     background-color: #f8b195;
     padding: 10px;
