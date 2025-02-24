@@ -1,5 +1,4 @@
-
-
+let puntuacion=0;
 let apiToken = null;
 let questions = [];
 let currentQuestionIndex = 0;
@@ -84,12 +83,29 @@ function mostrarPregunta() {
   document.getElementById("opciones").innerHTML = opcionesHTML;
 }
 
+function refrescarHighScore()
+{
+    document.getElementById("highScoreDisplay")=localStorage.getItem("highScore");
+}
+
 function verificarRespuesta(respuestaSeleccionada, respuestaCorrecta) {
   if (respuestaSeleccionada === respuestaCorrecta) {
     alert("✅ ¡Correcto!");
+    puntuacion++;
+    if (puntuacion>localStorage.getItem("highScore"))
+    {
+        localStorage.setItem("highScore",puntuacion);
+    }else if(localStorage.getItem("highScore")==null)
+    {
+        localStorage.setItem("highScore",puntuacion);
+    }
+    {
+
+    }
   } else {
     alert("❌ Incorrecto. La respuesta correcta era: " + respuestaCorrecta);
   }
+  refrescarHighScore();
   currentQuestionIndex++;
   mostrarPregunta();
 }
