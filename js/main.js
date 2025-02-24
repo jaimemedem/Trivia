@@ -1,10 +1,20 @@
 let api_token;
 
+document.getElementById("jugarBtn").addEventListener("click", function(event) {
+    event.preventDefault(); // Evita que el enlace cambie de página inmediatamente
+    iniciarJuego();
+    setTimeout(() => {
+        window.location.href = "game.html"; // Redirigir después de ejecutar iniciarJuego()
+    }, 1000); // Espera 1 segundo antes de redirigir (ajusta el tiempo si es necesario)
+});
+
+
 function iniciarJuego() {
     fetch("https://opentdb.com/api_token.php?command=request")
         .then(response => response.json())
         .then(data => {
             api_token = data.token;
+            console.log("token obteniado=",api_token);
             preguntar();
         })
         .catch(error => console.error("Error obteniendo token:", error));
